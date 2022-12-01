@@ -1,1 +1,0 @@
-# school-simple-little-project
