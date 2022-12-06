@@ -8,6 +8,9 @@
 - Install docker desktop
   ```https://www.docker.com/products/docker-desktop/```
 
+
+### Start
+
 - Start the database on a terminal window
   ```docker-compose up --build```
 
