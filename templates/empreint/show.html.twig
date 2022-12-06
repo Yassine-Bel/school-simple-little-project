@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Empreint{% endblock %}
+
+{% block body %}
+    <h1>Empreint</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ empreint.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_empreint_index') }}">back to list</a>
+
+    <a href="{{ path('app_empreint_edit', {'id': empreint.id}) }}">edit</a>
+
+    {{ include('empreint/_delete_form.html.twig') }}
+{% endblock %}

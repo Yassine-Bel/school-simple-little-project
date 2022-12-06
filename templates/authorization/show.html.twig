@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Authorization{% endblock %}
+
+{% block body %}
+    <h1>Authorization</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ authorization.id }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ authorization.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_authorization_index') }}">back to list</a>
+
+    <a href="{{ path('app_authorization_edit', {'id': authorization.id}) }}">edit</a>
+
+    {{ include('authorization/_delete_form.html.twig') }}
+{% endblock %}
