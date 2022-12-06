@@ -16,12 +16,12 @@ class Livre
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
-    #[ORM\Column]
-    private ?int $numeroDeSerie = null;
+    #[ORM\Column(length: 20)]
+    private ?string $auteur = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?categorie $idCategorie = null;
+    private ?Categorie $idCategorie = null;
 
     public function getId(): ?int
     {
@@ -40,24 +40,24 @@ class Livre
         return $this;
     }
 
-    public function getNumeroDeSerie(): ?int
+    public function getAuteur(): ?string
     {
-        return $this->numeroDeSerie;
+        return $this->auteur;
     }
 
-    public function setNumeroDeSerie(int $numeroDeSerie): self
+    public function setAuteur(string $auteur): self
     {
-        $this->numeroDeSerie = $numeroDeSerie;
+        $this->auteur = $auteur;
 
         return $this;
     }
 
-    public function getIdCategorie(): ?categorie
+    public function getIdCategorie(): ?Categorie
     {
         return $this->idCategorie;
     }
 
-    public function setIdCategorie(?categorie $idCategorie): self
+    public function setIdCategorie(?Categorie $idCategorie): self
     {
         $this->idCategorie = $idCategorie;
 

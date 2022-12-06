@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\EmpreintRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EmpreintRepository::class)]
@@ -15,16 +13,16 @@ class Empreint
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 40)]
+    #[ORM\Column(length: 20)]
     private ?string $nomProduit = null;
 
-    #[ORM\ManyToMany(targetEntity: livre::class)]
-    private Collection $idlivre;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Livre $idlivre = null;
 
-    public function __construct()
-    {
-        $this->idlivre = new ArrayCollection();
-    }
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $idUser = null;
 
     public function getId(): ?int
     {
@@ -43,26 +41,26 @@ class Empreint
         return $this;
     }
 
-    /**
-     * @return Collection<int, livre>
-     */
-    public function getIdlivre(): Collection
+    public function getIdlivre(): ?Livre
     {
         return $this->idlivre;
     }
 
-    public function addIdlivre(livre $idlivre): self
+    public function setIdlivre(?Livre $idlivre): self
     {
-        if (!$this->idlivre->contains($idlivre)) {
-            $this->idlivre->add($idlivre);
-        }
+        $this->idlivre = $idlivre;
 
         return $this;
     }
 
-    public function removeIdlivre(livre $idlivre): self
+    public function getIdUser(): ?User
     {
-        $this->idlivre->removeElement($idlivre);
+        return $this->idUser;
+    }
+
+    public function setIdUser(?User $idUser): self
+    {
+        $this->idUser = $idUser;
 
         return $this;
     }

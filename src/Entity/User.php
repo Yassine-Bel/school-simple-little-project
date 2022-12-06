@@ -14,8 +14,11 @@ class User
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $role = null;
+    #[ORM\Column(length: 100)]
+    private ?string $adresseMail = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $mdp = null;
 
     #[ORM\Column(length: 50)]
     private ?string $nom = null;
@@ -31,14 +34,26 @@ class User
         return $this->id;
     }
 
-    public function getRole(): ?string
+    public function getAdresseMail(): ?string
     {
-        return $this->role;
+        return $this->adresseMail;
     }
 
-    public function setRole(string $role): self
+    public function setAdresseMail(string $adresseMail): self
     {
-        $this->role = $role;
+        $this->adresseMail = $adresseMail;
+
+        return $this;
+    }
+
+    public function getMdp(): ?string
+    {
+        return $this->mdp;
+    }
+
+    public function setMdp(string $mdp): self
+    {
+        $this->mdp = $mdp;
 
         return $this;
     }
