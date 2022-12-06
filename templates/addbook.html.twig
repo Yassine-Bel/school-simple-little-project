@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom01">Nom du livre</label>
+                <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom02">Nom de l'auteur</label>
+                <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom04">Catégorie</label>
+                <select class="custom-select" id="validationCustom04" required>
+                    <option selected disabled value="">Choisir</option>
+                    <option>...</option>
+                </select>
+                <div class="invalid-feedback">
+                    Prendre une bonne catégorie
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Valider</button>
+    </form>
+{% endblock %}
