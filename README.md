@@ -1,1 +1,4 @@
-# school-simple-little-project
+1 - Start the project :
+docker-compose up --build
+
+2 - symfony serve
