@@ -7,6 +7,10 @@
 
 - Install docker desktop
   ```https://www.docker.com/products/docker-desktop/```
+ 
+ 
+- Install bundles
+  ```composer install --prefer-dist --no-scripts  --ignore-platform-reqs```
 
 
 ### Start
